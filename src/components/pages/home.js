@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./home.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -31,13 +32,20 @@ const Home = () => {
                                 </div>
                                 <div className="posterImage__overlay">
                                     <div className="posterImage__title">
-
+                                        {movie ? movie.original_title : ""}
                                     </div>
+                                    <div className="posterImage__runtime">
+                                        {movie ? movie.release_date : ""}
+                                        <span className="posterImage__rating">
+                                            {movie ? movie.vote_average : ""}
+                                        </span>
+                                        <i className="fas fa-star" />{" "}
+                                    </div>
+                                    <div className="postImage__description">{movie ? movie.overview : ""}</div>
                                 </div>
                             </Link>
                         )
                         )
-
                     }
                 </Carousel>
             </div>
